@@ -18,9 +18,7 @@ class BLEManager: NSObject, ObservableObject {
     
     func startCentralManger() {
         centralManager = CBCentralManager(delegate: self, queue: nil)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.centralManagerDidUpdateState(self.centralManager)
-        }
+        self.centralManagerDidUpdateState(self.centralManager)
     }
 }
 

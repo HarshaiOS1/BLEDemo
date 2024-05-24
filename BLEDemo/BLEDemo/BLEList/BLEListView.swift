@@ -1,14 +1,13 @@
 //
-//  ContentView.swift
+//  BLEListView.swift
 //  BLEDemo
 //
 //  Created by Krishnappa, Harsha on 24/05/2024.
 //
 
 import SwiftUI
-import ComposableArchitecture
 
-struct ContentView: View {
+struct BLEListView: View {
     var body: some View {
         VStack {
             Image(systemName: "network")
@@ -26,5 +25,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    BLEListView()
 }

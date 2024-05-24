@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1D5A665E2C00B3980014423B /* BLEDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5A665D2C00B3980014423B /* BLEDemoApp.swift */; };
-		1D5A66602C00B3980014423B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5A665F2C00B3980014423B /* ContentView.swift */; };
 		1D5A66622C00B3990014423B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D5A66612C00B3990014423B /* Assets.xcassets */; };
 		1D5A66652C00B3990014423B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D5A66642C00B3990014423B /* Preview Assets.xcassets */; };
 		1D5A666F2C00B39A0014423B /* BLEDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5A666E2C00B39A0014423B /* BLEDemoTests.swift */; };
@@ -16,6 +15,9 @@
 		1D5A667B2C00B39A0014423B /* BLEDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5A667A2C00B39A0014423B /* BLEDemoUITestsLaunchTests.swift */; };
 		1D5A66892C00B3BD0014423B /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1D5A66882C00B3BD0014423B /* ComposableArchitecture */; };
 		1D5A668B2C00B5DE0014423B /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5A668A2C00B5DE0014423B /* BLEManager.swift */; };
+		1D5A668D2C00BCF40014423B /* BLEListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5A668C2C00BCF40014423B /* BLEListView.swift */; };
+		1D5A66912C00BD810014423B /* BLEListReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5A66902C00BD810014423B /* BLEListReducer.swift */; };
+		1D5A66932C00BDE30014423B /* BLEDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5A66922C00BDE30014423B /* BLEDevice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +40,6 @@
 /* Begin PBXFileReference section */
 		1D5A665A2C00B3980014423B /* BLEDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLEDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D5A665D2C00B3980014423B /* BLEDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDemoApp.swift; sourceTree = "<group>"; };
-		1D5A665F2C00B3980014423B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1D5A66612C00B3990014423B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D5A66642C00B3990014423B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1D5A666A2C00B39A0014423B /* BLEDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLEDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +48,9 @@
 		1D5A66782C00B39A0014423B /* BLEDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDemoUITests.swift; sourceTree = "<group>"; };
 		1D5A667A2C00B39A0014423B /* BLEDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1D5A668A2C00B5DE0014423B /* BLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
+		1D5A668C2C00BCF40014423B /* BLEListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEListView.swift; sourceTree = "<group>"; };
+		1D5A66902C00BD810014423B /* BLEListReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEListReducer.swift; sourceTree = "<group>"; };
+		1D5A66922C00BDE30014423B /* BLEDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDevice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				1D5A665D2C00B3980014423B /* BLEDemoApp.swift */,
-				1D5A665F2C00B3980014423B /* ContentView.swift */,
-				1D5A668A2C00B5DE0014423B /* BLEManager.swift */,
+				1D5A668E2C00BD4E0014423B /* BLEList */,
+				1D5A668F2C00BD570014423B /* Network */,
 				1D5A66612C00B3990014423B /* Assets.xcassets */,
 				1D5A66632C00B3990014423B /* Preview Content */,
 			);
@@ -130,6 +134,24 @@
 				1D5A667A2C00B39A0014423B /* BLEDemoUITestsLaunchTests.swift */,
 			);
 			path = BLEDemoUITests;
+			sourceTree = "<group>";
+		};
+		1D5A668E2C00BD4E0014423B /* BLEList */ = {
+			isa = PBXGroup;
+			children = (
+				1D5A668C2C00BCF40014423B /* BLEListView.swift */,
+				1D5A66902C00BD810014423B /* BLEListReducer.swift */,
+				1D5A66922C00BDE30014423B /* BLEDevice.swift */,
+			);
+			path = BLEList;
+			sourceTree = "<group>";
+		};
+		1D5A668F2C00BD570014423B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1D5A668A2C00B5DE0014423B /* BLEManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,9 +290,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D5A66602C00B3980014423B /* ContentView.swift in Sources */,
+				1D5A66932C00BDE30014423B /* BLEDevice.swift in Sources */,
 				1D5A668B2C00B5DE0014423B /* BLEManager.swift in Sources */,
+				1D5A668D2C00BCF40014423B /* BLEListView.swift in Sources */,
 				1D5A665E2C00B3980014423B /* BLEDemoApp.swift in Sources */,
+				1D5A66912C00BD810014423B /* BLEListReducer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
