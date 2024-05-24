@@ -6,25 +6,35 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct BLEListView: View {
-    
-    var body: some View {
-        VStack {
-            Image(systemName: "network")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Button {
-                BLEManager().startCentralManger()
-            } label: {
-                Text("Get BLE devices")
+    let store: StoreOf<BLEListReducer>
+
+    var body: some View  {
+        NavigationView {
+            WithViewStore(self.store, observe: { $0 }) { viewStore in
+                List {
+                    if viewStore.isScanning {
+                        ProgressView()
+                    }
+                    if let devices = viewStore.bleDevices {
+                        ForEach(devices, id: \.id) { device in
+                            Text(device.name ?? "")
+                        }
+                    }
+                }
+                .navigationTitle(Text("BLE Devices"))
+                .onAppear {
+                    viewStore.send(.scanForBLEDevices)
+                }
             }
-            .padding(EdgeInsets(top: 10.0, leading: 10.0, bottom: 10.0, trailing: 10.0))
         }
-        .padding()
     }
 }
 
 #Preview {
-    BLEListView()
+    BLEListView(store: Store(initialState: BLEListReducer.State(), reducer: {
+        BLEListReducer()
+    }))
 }

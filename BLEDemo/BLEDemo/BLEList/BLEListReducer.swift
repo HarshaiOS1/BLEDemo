@@ -10,7 +10,12 @@ import ComposableArchitecture
 
 class BLEListReducer: Reducer {
     let bleManager = BLEManager()
-    struct State {
+    
+    struct State: Equatable {
+        //TODO:check why this static func being added for Equatable
+        static func == (lhs: BLEListReducer.State, rhs: BLEListReducer.State) -> Bool {
+            return true
+        }
         var bleDevices: [BLEDevice]?
         var isScanning: Bool = false
     }
@@ -25,14 +30,14 @@ class BLEListReducer: Reducer {
         case .scanForBLEDevices:
             state.isScanning = true
             return .run { send in
-                let devices = self.bleManager.startCentralManger()
+                let devices = await self.bleManager.startCentralManger()
                 if let dev = devices {
                     await send(.devicesFetched(dev))
                 }
             }
         case .devicesFetched(let bleDevices):
-            state.bleDevices = bleDevices
             state.isScanning = false
+            state.bleDevices = bleDevices
             return .none
         }
     }

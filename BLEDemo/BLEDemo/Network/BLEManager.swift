@@ -8,29 +8,23 @@
 import Foundation
 import CoreBluetooth
 
-//protocol BLEManagerDelegate: AnyObject {
-//    func bleManager(fetchdDevices: [BLEDevice])
-//}
-
 class BLEManager: NSObject, ObservableObject {
     var centralManager: CBCentralManager!
     var scannedBLEDevices: [BLEDevice] = []
-//    weak var delegate: BLEManagerDelegate?
-    
     override init() {
         super.init()
     }
     
-    func startCentralManger() -> [BLEDevice]? {
+    func startCentralManger() async -> [BLEDevice]? {
         centralManager = CBCentralManager(delegate: self, queue: nil)
         self.centralManagerDidUpdateState(self.centralManager)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.centralManager.stopScan()
+        do {
+            try await Task.sleep(nanoseconds: 1 * 1_000_000_100) // 1 second delay
+        } catch {
+            print("error")
         }
-        if !centralManager.isScanning {
-            return scannedBLEDevices
-        }
-        return nil
+        self.centralManager = nil
+        return scannedBLEDevices
     }
 }
 
@@ -52,6 +46,7 @@ extension BLEManager: CBCentralManagerDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        print(peripheral)
         let identifier = peripheral.identifier.uuidString.prefix(5)
         let name = peripheral.name ?? String(identifier)
         if !scannedBLEDevices.contains(where: { $0.name == name }) {
@@ -61,6 +56,9 @@ extension BLEManager: CBCentralManagerDelegate {
             } else {
                 scannedBLEDevices.append(device)
             }
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            central.stopScan()
         }
     }
 
