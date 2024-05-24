@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BLEListView: View {
+    
     var body: some View {
         VStack {
             Image(systemName: "network")
