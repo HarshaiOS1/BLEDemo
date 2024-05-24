@@ -11,10 +11,15 @@ import ComposableArchitecture
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
+            Image(systemName: "􀤆")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Button {
+                
+            } label: {
+                Text("Get BLE devices")
+            }
+            .padding(EdgeInsets(top: 10.0, leading: 10.0, bottom: 10.0, trailing: 10.0))
         }
         .padding()
     }

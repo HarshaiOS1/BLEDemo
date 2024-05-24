@@ -15,6 +15,7 @@
 		1D5A66792C00B39A0014423B /* BLEDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5A66782C00B39A0014423B /* BLEDemoUITests.swift */; };
 		1D5A667B2C00B39A0014423B /* BLEDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5A667A2C00B39A0014423B /* BLEDemoUITestsLaunchTests.swift */; };
 		1D5A66892C00B3BD0014423B /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1D5A66882C00B3BD0014423B /* ComposableArchitecture */; };
+		1D5A668B2C00B5DE0014423B /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5A668A2C00B5DE0014423B /* BLEManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		1D5A66742C00B39A0014423B /* BLEDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLEDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D5A66782C00B39A0014423B /* BLEDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDemoUITests.swift; sourceTree = "<group>"; };
 		1D5A667A2C00B39A0014423B /* BLEDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1D5A668A2C00B5DE0014423B /* BLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				1D5A665D2C00B3980014423B /* BLEDemoApp.swift */,
 				1D5A665F2C00B3980014423B /* ContentView.swift */,
+				1D5A668A2C00B5DE0014423B /* BLEManager.swift */,
 				1D5A66612C00B3990014423B /* Assets.xcassets */,
 				1D5A66632C00B3990014423B /* Preview Content */,
 			);
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D5A66602C00B3980014423B /* ContentView.swift in Sources */,
+				1D5A668B2C00B5DE0014423B /* BLEManager.swift in Sources */,
 				1D5A665E2C00B3980014423B /* BLEDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
