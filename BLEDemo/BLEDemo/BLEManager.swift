@@ -18,9 +18,13 @@ class BLEManager: NSObject, ObservableObject {
     
     func startCentralManger() {
         centralManager = CBCentralManager(delegate: self, queue: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.centralManagerDidUpdateState(self.centralManager)
+        }
     }
 }
 
+//MARK: CBCentralManagerDelegate
 extension BLEManager: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch (central.state) {
@@ -29,10 +33,21 @@ extension BLEManager: CBCentralManagerDelegate {
             break
         case .poweredOn:
             print("scanning for devices")
+            self.centralManager.scanForPeripherals(withServices: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey : true])
             break
         @unknown default:
             print("unknown error")
             break
         }
     }
+    
+    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        let name = peripheral.name ?? String(peripheral.identifier.uuidString.prefix(5))
+        scannedBLEDevices.append(name)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            central.stopScan()
+            print(self.scannedBLEDevices)
+        }
+    }
+
 }
