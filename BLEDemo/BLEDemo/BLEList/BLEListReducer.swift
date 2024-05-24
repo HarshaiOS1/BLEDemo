@@ -9,15 +9,11 @@ import Foundation
 import ComposableArchitecture
 
 class BLEListReducer: Reducer {
-    let bleManager = BLEManager()
     
-    struct State: Equatable {
-        //TODO:check why this static func being added for Equatable
-        static func == (lhs: BLEListReducer.State, rhs: BLEListReducer.State) -> Bool {
-            return true
-        }
+    @ObservableState
+    struct State {
         var bleDevices: [BLEDevice]?
-        var isScanning: Bool = false
+        var isScanning: Bool = true
     }
     
     enum Action {
@@ -30,13 +26,14 @@ class BLEListReducer: Reducer {
         case .scanForBLEDevices:
             state.isScanning = true
             return .run { send in
-                let devices = await self.bleManager.startCentralManger()
+                let devices = await BLEManager.shared.startCentralManger()
                 if let dev = devices {
                     await send(.devicesFetched(dev))
                 }
             }
         case .devicesFetched(let bleDevices):
             state.isScanning = false
+            print("device count :: \(String(describing: bleDevices?.count))" )
             state.bleDevices = bleDevices
             return .none
         }

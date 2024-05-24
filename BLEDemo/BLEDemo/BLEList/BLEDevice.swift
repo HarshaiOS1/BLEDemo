@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BLEDevice: Identifiable {
+struct BLEDevice: Identifiable, Equatable {
     let id: UUID?
     let name: String?
     let RSSI: Int

@@ -9,8 +9,12 @@ import Foundation
 import CoreBluetooth
 
 class BLEManager: NSObject, ObservableObject {
-    var centralManager: CBCentralManager!
-    var scannedBLEDevices: [BLEDevice] = []
+    static let shared = BLEManager()
+    
+    private var centralManager: CBCentralManager!
+    var peripheral: CBPeripheral?
+    @Published var scannedBLEDevices: [BLEDevice] = []
+    
     override init() {
         super.init()
     }
