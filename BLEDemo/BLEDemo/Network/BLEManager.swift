@@ -23,7 +23,7 @@ class BLEManager: NSObject, ObservableObject {
         centralManager = CBCentralManager(delegate: self, queue: nil)
         self.centralManagerDidUpdateState(self.centralManager)
         do {
-            try await Task.sleep(nanoseconds: 1 * 1_000_000_100) // 1 second delay
+            try await Task.sleep(nanoseconds: 2 * 1_000_000_100) // 1 second delay
         } catch {
             print("error")
         }
@@ -61,7 +61,7 @@ extension BLEManager: CBCentralManagerDelegate {
                 scannedBLEDevices.append(device)
             }
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             central.stopScan()
         }
     }

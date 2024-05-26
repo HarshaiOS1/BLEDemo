@@ -15,8 +15,8 @@ struct BLEListView: View {
         NavigationView {
             List {
                 if store.isScanning {
-                        Text("Scanning for BLE devices")
-                            .foregroundStyle(.red)
+                    Text("Scanning for BLE devices")
+                        .foregroundStyle(.red)
                 } else {
                     Text("Scanning done")
                         .foregroundStyle(.green)
@@ -27,7 +27,6 @@ struct BLEListView: View {
                             Text("Name: \(device.name ?? "")")
                             Text("RSSI : \(device.RSSI)")
                         }
-                        
                     }
                 }
             }
