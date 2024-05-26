@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct BLEDemoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            BLEListView(store: Store(initialState: BLEListReducer.State(), reducer: {
+                BLEListReducer()
+            }))
         }
     }
 }
