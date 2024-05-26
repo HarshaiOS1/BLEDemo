@@ -11,7 +11,7 @@ import ComposableArchitecture
 class BLEListReducer: Reducer {
     
     @ObservableState
-    struct State {
+    struct State: Equatable {
         var bleDevices: [BLEDevice]?
         var isScanning: Bool = true
     }
